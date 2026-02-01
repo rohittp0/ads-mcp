@@ -1,5 +1,14 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "agent": {
+    "plan": {
+      "permission": {
+        "skill": {
+          "launch-ad": "deny"
+        }
+      }
+    }
+  },
   "mcp": {
     "meta-ads-mcp": {
       "type": "local",
@@ -21,6 +30,14 @@
         "@ax-crew/chartjs-mcp-server"
       ],
       "enabled": true
+    },
+    "veo3": {
+      "type": "local",
+      "command": ["uvx", "mcp-veo3", "--output-dir", "~/Videos/Generated"],
+      "enabled": true,
+      "environment": {
+        "GEMINI_API_KEY": "{env:GEMINI_API_KEY}"
+      }
     },
     "mcp-clickhouse": {
       "type": "local",
