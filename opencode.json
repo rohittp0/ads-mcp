@@ -1,0 +1,49 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "meta-ads-mcp": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "meta-ads-mcp"
+      ],
+      "enabled": true,
+      "environment": {
+        "META_ACCESS_TOKEN": "{env:META_ACCESS_TOKEN}"
+      }
+    },
+    "mcp-server-chart": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@ax-crew/chartjs-mcp-server"
+      ],
+      "enabled": true
+    },
+    "mcp-clickhouse": {
+      "type": "local",
+      "command": [
+        "uv",
+        "run",
+        "--with",
+        "mcp-clickhouse",
+        "--python",
+        "3.10",
+        "mcp-clickhouse"
+      ],
+      "enabled": true,
+      "environment": {
+        "CLICKHOUSE_HOST": "{env:CLICKHOUSE_HOST}",
+        "CLICKHOUSE_PORT": "{env:CLICKHOUSE_PORT}",
+        "CLICKHOUSE_USER": "{env:CLICKHOUSE_USER}",
+        "CLICKHOUSE_PASSWORD": "{env:CLICKHOUSE_PASSWORD}",
+        "CLICKHOUSE_SECURE": "true",
+        "CLICKHOUSE_VERIFY": "true",
+        "CLICKHOUSE_CONNECT_TIMEOUT": "30",
+        "CLICKHOUSE_SEND_RECEIVE_TIMEOUT": "30"
+      }
+    }
+  }
+}
