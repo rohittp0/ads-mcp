@@ -2,4 +2,4 @@
 set -a
 source .env
 set +a
-opencode
+opencode $@
